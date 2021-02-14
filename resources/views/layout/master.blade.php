@@ -15,6 +15,16 @@
 
     <link rel="stylesheet" href="{{ url('assets/css/style.css') }}">
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N2R77TRE5B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-N2R77TRE5B');
+    </script>
+
     </head>
     
     <body>
