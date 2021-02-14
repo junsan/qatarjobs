@@ -24,3 +24,7 @@ Route::get('/admin', [NewsController::class, 'admin_index']);
 Route::post('/admin', [NewsController::class, 'store'])->name('store_news');
 
 Route::post('/register', [RegisterController::class, 'store'])->name('register');
+
+Route::get('/php', function () {
+    return view('php');
+});
