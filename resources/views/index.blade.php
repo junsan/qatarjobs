@@ -60,129 +60,31 @@
                     <div class="section-heading">
                         <h2>Featured <em>News</em></h2>
                         <img src="assets/images/line-dec.png" alt="">
-                        <p>Nunc urna sem, laoreet ut metus id, aliquet consequat magna. Sed viverra ipsum dolor, ultricies fermentum massa consequat eu.</p>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4">
-                    <div class="trainer-item">
-                        <div class="image-thumb">
-                            <img src="assets/images/product-1-720x480.jpg" alt="">
-                        </div>
-                        <div class="down-content">
-                            <span> <sup>$</sup>70 000 </span>
 
-                            <h4>Lorem ipsum dolor sit amet, consectetur</h4>
+                @foreach ($news as $new)
+                    <div class="col-lg-4">
+                        <div class="trainer-item">
+                            <div class="image-thumb">
+                                <img src="{{ $new->image_url }}" alt="">
+                            </div>
+                            <div class="down-content">
+                                <span></span>
 
-                            <p>Medical &nbsp;/&nbsp; Health Jobs</p>
+                                <h4><a href="{{ route('news.show', $new->id) }}">{{ $new->title }}</a></h4>
 
-                            <ul class="social-icons">
-                                <li><a href="job-details.html">+ View More</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="trainer-item">
-                        <div class="image-thumb">
-                            <img src="assets/images/product-2-720x480.jpg" alt="">
-                        </div>
-                        <div class="down-content">
-                            <span> <sup>$</sup>70 000 </span>
+                                <p>{{ $new->source->name }}</p>
 
-                            <h4>Lorem ipsum dolor sit amet, consectetur</h4>
-
-                            <p>Medical &nbsp;/&nbsp; Health Jobs</p>
-
-                            <ul class="social-icons">
-                                <li><a href="job-details.html">+ View More</a></li>
-                            </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="trainer-item">
-                        <div class="image-thumb">
-                            <img src="assets/images/product-3-720x480.jpg" alt="">
-                        </div>
-                        <div class="down-content">
-                            <span> <sup>$</sup>70 000 </span>
-
-                            <h4>Lorem ipsum dolor sit amet, consectetur</h4>
-
-                            <p>Medical &nbsp;/&nbsp; Health Jobs</p>
-
-                            <ul class="social-icons">
-                                <li><a href="job-details.html">+ View More</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="trainer-item">
-                        <div class="image-thumb">
-                            <img src="assets/images/product-1-720x480.jpg" alt="">
-                        </div>
-                        <div class="down-content">
-                            <span> <sup>$</sup>70 000 </span>
-
-                            <h4>Lorem ipsum dolor sit amet, consectetur</h4>
-
-                            <p>Medical &nbsp;/&nbsp; Health Jobs</p>
-
-                            <ul class="social-icons">
-                                <li><a href="job-details.html">+ View More</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="trainer-item">
-                        <div class="image-thumb">
-                            <img src="assets/images/product-2-720x480.jpg" alt="">
-                        </div>
-                        <div class="down-content">
-                            <span> <sup>$</sup>70 000 </span>
-
-                            <h4>Lorem ipsum dolor sit amet, consectetur</h4>
-
-                            <p>Medical &nbsp;/&nbsp; Health Jobs</p>
-
-                            <ul class="social-icons">
-                                <li><a href="job-details.html">+ View More</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="trainer-item">
-                        <div class="image-thumb">
-                            <img src="assets/images/product-3-720x480.jpg" alt="">
-                        </div>
-                        <div class="down-content">
-                            <span> <sup>$</sup>70 000 </span>
-
-                            <h4>Lorem ipsum dolor sit amet, consectetur</h4>
-
-                            <p>Medical &nbsp;/&nbsp; Health Jobs</p>
-
-                            <ul class="social-icons">
-                                <li><a href="job-details.html">+ View More</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
 
             <br>
-
-            <div class="main-button text-center">
-                <a href="jobs.html">View Jobs</a>
-            </div>
         </div>
     </section>
 
@@ -193,9 +95,9 @@
                 <div class="col-lg-10 offset-lg-1">
                     <div class="cta-content">
                         <h2>Send us a <em>message</em></h2>
-                        <p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula, sit amet dapibus odio augue eget libero. Morbi tempus mauris a nisi luctus imperdiet.</p>
+                        <p>Contact us for the latest Qatar jobs and Qatar news.</p>
                         <div class="main-button">
-                            <a href="contact.html">Contact us</a>
+                            <a href="">Contact us</a>
                         </div>
                     </div>
                 </div>

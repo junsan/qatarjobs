@@ -2,15 +2,15 @@
 
 @section('content')
 
-    <section class="section section-bg" id="call-to-action" style="background-image: url(assets/images/banner-image-1-1920x500.jpg)">
+    <section class="section section-bg" id="call-to-action" style="background-image: url(../assets/images/banner-image-1-1920x500.jpg)">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
                     <div class="cta-content">
                         <br>
                         <br>
-                        <h2>Single <em>blog post</em></h2>
-                        <p>Ut consectetur, metus sit amet aliquet placerat, enim est ultricies ligula</p>
+                        <h2>Qatar <em>News</em></h2>
+                        <p>Find all the latest Qatar News here.</p>
                     </div>
                 </div>
             </div>
@@ -24,25 +24,21 @@
             <br>
             <section class='tabs-content'>
               <article>
-                <h4>Lorem ipsum dolor sit amet, consectetur adipisicing.</h4>
+                <h4>{{ $news->title }}</h4>
 
-                <p><i class="fa fa-user"></i> John Doe &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10 &nbsp;</p>
+                <p><i class="fa fa-user"></i> {{ $news->source->name }} &nbsp;|&nbsp; <i class="fa fa-calendar"></i> {{ $news->created_at }} &nbsp;</p>
 
-                <div><img src="assets/images/blog-image-fullscren-1-1920x700.jpg" alt=""></div>
+                <div><img src="{{ $news->image_url }}" alt=""></div>
 
                 <br>
-
-                <p>Phasellus convallis mauris sed elementum vulputate. Donec posuere leo sed dui eleifend hendrerit. Sed suscipit suscipit erat, sed vehicula ligula. Aliquam ut sem fermentum sem tincidunt lacinia gravida aliquam nunc. Morbi quis erat imperdiet, molestie nunc ut, accumsan diam.</p>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam nihil magnam magni perferendis sit, inventore maxime architecto ab officia illum vitae veritatis asperiores laborum quaerat ratione omnis, possimus, sunt quae?</p>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus amet, corporis corrupti quod illum id autem assumenda nostrum quo, odio libero dolorum. Expedita, enim non voluptatibus qui veritatis iste ad? Voluptates natus dolor, minus culpa magnam! Iusto blanditiis beatae laudantium.</p>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci dolor nemo optio facere impedit fugiat obcaecati blanditiis tempora inventore sapiente beatae aspernatur vitae fuga totam possimus eveniet, praesentium maiores! Dolorum illum voluptates ipsum aspernatur explicabo numquam, aliquid a amet, deleniti eos suscipit totam laudantium excepturi voluptatum fugiat eum nesciunt minus iste, expedita provident temporibus, alias possimus veritatis aut fugit? Eaque.</p>
-
+                <br>
+                {{ $news->content }}
+                <br>
+                <br>
+                <br>
                 <ul class="social-icons">
                     <li>Source:</li>
-                    <li><a href="#">http://localhost/qatarjobs/public/news</a></li>
+                    <li><a target="_blank" href="{{ $news->source_url }}">{{ $news->source_url }}</a></li>
                 </ul>
               </article>
             </section>

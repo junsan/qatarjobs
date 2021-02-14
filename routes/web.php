@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\IndexController;
 use App\Http\Controllers\RegisterController;
 
 /*
@@ -14,12 +16,11 @@ use App\Http\Controllers\RegisterController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [IndexController::class, 'index'])->name('index');
 
-Route::get('/news', function () {
-    return view('news');
-});
+Route::resource('news', NewsController::class);
+
+Route::get('/admin', [NewsController::class, 'admin_index']);
+Route::post('/admin', [NewsController::class, 'store'])->name('store_news');
 
 Route::post('/register', [RegisterController::class, 'store'])->name('register');
