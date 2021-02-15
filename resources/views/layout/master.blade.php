@@ -13,6 +13,8 @@
 
     <link rel="stylesheet" type="text/css" href="{{ url('assets/css/font-awesome.css') }}">
 
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="{{ url('assets/css/style.css') }}">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -40,5 +42,12 @@
     <!-- ***** Footer Area ***** -->
     @include('layout.footer')
 
+    <script>
+      $(document).ready(function() {
+          $('#summernote').summernote({
+            height: 300
+          });
+      });
+  </script>
   </body>
 </html>

@@ -37,7 +37,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="content" class="form-label">Content</label>
-                        <textarea class="form-control" name="content" rows="9"></textarea>
+                        <textarea id="summernote" class="form-control" name="content" rows="9"></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="source_url" class="form-label">Source Url</label>

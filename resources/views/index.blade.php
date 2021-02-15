@@ -74,7 +74,7 @@
                             <div class="down-content">
                                 <span></span>
 
-                                <h4><a href="{{ route('news.show', $new->id) }}">{{ $new->title }}</a></h4>
+                                <h4><a href="{{ route('news.show', [$new->id, $new->slug]) }}">{{ $new->title }}</a></h4>
 
                                 <p>{{ $new->source->name }}</p>
 

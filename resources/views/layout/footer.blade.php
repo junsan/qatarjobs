@@ -25,6 +25,7 @@
 <script src="{{ url('assets/js/imgfix.min.js') }}"></script> 
 <script src="{{ url('assets/js/mixitup.js') }}"></script> 
 <script src="{{ url('assets/js/accordions.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
 <!-- Global Init -->
 <script src="{{ url('assets/js/custom.js') }}"></script>

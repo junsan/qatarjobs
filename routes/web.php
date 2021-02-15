@@ -18,7 +18,7 @@ use App\Http\Controllers\RegisterController;
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
 
-Route::resource('news', NewsController::class);
+Route::get('/news/{id}/{slug?}', [NewsController::class, 'show'])->name('news.show');
 
 Route::get('/admin', [NewsController::class, 'admin_index']);
 Route::post('/admin', [NewsController::class, 'store'])->name('store_news');

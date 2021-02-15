@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <section class="section section-bg" id="call-to-action" style="background-image: url(../assets/images/banner-image-1-1920x500.jpg)">
+    <section class="section section-bg" id="call-to-action" style="background-image: url(http://localhost/qatarjobs/public/assets/images/banner-image-1-1920x500.jpg)">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
@@ -32,7 +32,7 @@
 
                 <br>
                 <br>
-                {{ $news->content }}
+                {!! $news->content !!}
                 <br>
                 <br>
                 <br>

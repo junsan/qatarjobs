@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class News extends Model
 {
@@ -12,5 +13,10 @@ class News extends Model
     public function source()
     {
         return $this->belongsTo(Source::class);
+    }
+
+    public function getSlugAttribute(): string
+    {
+        return Str::slug($this->title);
     }
 }
