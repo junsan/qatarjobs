@@ -47,6 +47,9 @@
           $('#summernote').summernote({
             height: 300
           });
+          $('#requirements').summernote({
+            height: 300
+          });
       });
   </script>
   </body>

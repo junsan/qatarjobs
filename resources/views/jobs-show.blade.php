@@ -9,8 +9,8 @@
                     <div class="cta-content">
                         <br>
                         <br>
-                        <h2>Qatar <em>News</em></h2>
-                        <p>Find all the latest Qatar News here.</p>
+                        <h2>Qatar <em>Jobs</em></h2>
+                        <p>Find all the latest Jobs in Qatar here.</p>
                     </div>
                 </div>
             </div>
@@ -24,21 +24,21 @@
             <br>
             <section class='tabs-content'>
               <article>
-                <h4>{{ $news->title }}</h4>
+                <img src="{{ $job->company->logo }}" alt="" style="float: right" >
+                <h4>{{ $job->title }}</h4>
 
-                <p><i class="fa fa-user"></i> {{ $news->source->name }} &nbsp;|&nbsp; <i class="fa fa-calendar"></i> {{ $news->created_at }} &nbsp;</p>
-
-                <div><img src="{{ $news->image_url }}" alt=""></div>
-
+                <p><i class="fa fa-user"></i> {{ $job->company->name }} &nbsp;|&nbsp; <i class="fa fa-calendar"></i> {{ $job->created_at }} &nbsp;</p>
+                
                 <br>
-                <br>
-                {!! $news->content !!}
+                {!! $job->description !!}
+                
+                {!! $job->requirements !!}
                 <br>
                 <br>
                 <br>
                 <ul class="social-icons">
                     <li>Source:</li>
-                    <li><a target="_blank" href="{{ $news->source_url }}">{{ $news->source_url }}</a></li>
+                    <li><a target="_blank" href="{{ $job->source_url }}">{{ $job->source_url }}</a></li>
                 </ul>
               </article>
             </section>
