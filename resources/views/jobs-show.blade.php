@@ -25,21 +25,23 @@
             <section class='tabs-content'>
               <article>
                 <img src="{{ $job->company->logo }}" alt="" style="float: right" >
-                <h4>{{ $job->title }}</h4>
+                <h3>{{ $job->title }}</h3>
 
                 <p><i class="fa fa-user"></i> {{ $job->company->name }} &nbsp;|&nbsp; <i class="fa fa-calendar"></i> {{ $job->created_at }} &nbsp;</p>
                 
                 <br>
+                <h5>Description:</h5>
+                <br>
                 {!! $job->description !!}
-                
+                <h5>Requirements:</h5>
+                <br>
                 {!! $job->requirements !!}
                 <br>
                 <br>
                 <br>
-                <ul class="social-icons">
-                    <li>Source:</li>
-                    <li><a target="_blank" href="{{ $job->source_url }}">{{ $job->source_url }}</a></li>
-                </ul>
+                <div class="main-button">
+                    <a target="_blank" href="{{ $job->source_url }}">Apply</a>
+                </div>
               </article>
             </section>
 

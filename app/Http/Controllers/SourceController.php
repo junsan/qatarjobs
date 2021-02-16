@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\News;
+use App\Models\Source;
 use Illuminate\Http\Request;
 
-class IndexController extends Controller
+class SourceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,17 @@ class IndexController extends Controller
      */
     public function index()
     {
-        $news = News::orderBy('id', 'desc')->limit(6)->get();
+        //
+    }
 
-        return view('index')->with('news', $news);
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function admin_index()
+    {
+        return view('admin.source');
     }
 
     /**
@@ -37,7 +45,12 @@ class IndexController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $source = new Source();
+        $source->name= $request['name'];
+        $source->logo= $request['logo'];
+        $source->save(); 
+
+        return back();
     }
 
     /**

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JobsController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\SourceController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\RegisterController;
 
@@ -35,6 +36,9 @@ Route::post('/admin/company', [CompanyController::class, 'store'])->name('compan
 
 Route::get('/admin/jobs', [JobsController::class, 'admin_index'])->name('jobs.create');
 Route::post('/admin/jobs', [JobsController::class, 'store'])->name('jobs.store');
+
+Route::get('/admin/source', [SourceController::class, 'admin_index'])->name('source.create');
+Route::post('/admin/source', [SourceController::class, 'store'])->name('source.store');
 
 Route::get('/php', function () {
     return view('php');
