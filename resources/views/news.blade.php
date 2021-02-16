@@ -2,51 +2,92 @@
 
 @section('content')
 
-    <section class="section section-bg" id="call-to-action" style="background-image: url(http://qatarjobs.online/assets/images/banner-image-1-1920x500.jpg)">
+    <section class="section section-bg" id="call-to-action" style="background-image: url(assets/images/banner-image-1-1920x500.jpg)">
         <div class="container">
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
                     <div class="cta-content">
                         <br>
                         <br>
-                        <h2>Qatar <em>News</em></h2>
-                        <p>Find all the latest Qatar News here.</p>
+                        <h2>QATAR <em>NEWS</em></h2>
+                        <p>Find all the latest Qatar news and events here.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ***** News Start ***** -->
+    <!-- ***** Blog Start ***** -->
     <section class="section" id="our-classes">
         <div class="container">
             <br>
             <br>
-            <section class='tabs-content'>
-              <article>
-                <h4>{{ $news->title }}</h4>
+            <div class="row">
+                <div class="col-lg-8">
+                    <section class='tabs-content'>
 
-                <p><i class="fa fa-user"></i> {{ $news->source->name }} &nbsp;|&nbsp; <i class="fa fa-calendar"></i> {{ $news->created_at }} &nbsp;</p>
+                      @foreach ($news as $new)    
+                        <article>
+                            <img src="{{ $new->image_url }}" alt="">
+                            <h4><a href="{{ route('news.show', [$new->id, $new->slug]) }}">{{ $new->title }}</a></h4>
 
-                <div><img src="{{ $news->image_url }}" alt=""></div>
+                            <p><i class="fa fa-user"></i> {{ $new->source->name }} &nbsp;|&nbsp; <i class="fa fa-calendar"></i> {{ $new->created_at }} &nbsp;
+                            
+                            <br><br>
 
-                <br>
-                <br>
-                {!! $news->content !!}
-                <br>
-                <br>
-                <br>
-                <ul class="social-icons">
-                    <li>Source:</li>
-                    <li><a target="_blank" href="{{ $news->source_url }}">{{ $news->source_url }}</a></li>
-                </ul>
-              </article>
-            </section>
+                            {!! substr(strip_tags($new->content), 0, 200)  !!}...
 
-            <br>
-            <br>
-            <br>
+                            <div class="main-button">
+                                <a href="{{ route('news.show', [$new->id, $new->slug]) }}">Continue Reading</a>
+                            </div>
+                        </article>
+                        <br>
+                        <br>
+                      @endforeach
+
+                      <span style="float: right">{{ $news->links("pagination::bootstrap-4")}}</span>
+                      
+                    </section>
+
+                </div>
+
+                <div class="col-lg-4">
+                    <h5 class="h5">Search</h5>
+                    
+                    <div class="contact-form">
+                        <form id="search_form" name="gs" method="GET" action="#">
+                          <input type="text" name="q" class="searchText" placeholder="type to search..." autocomplete="on">
+                        </form>
+                    </div>
+
+                    
+
+                    <!-- <h5 class="h5">Recent posts</h5>
+
+                    <ul>
+                        <li>
+                            <p><a href="blog-details.html">Dolorum corporis ullam, reiciendis inventore est repudiandae</a></p>
+                            <small><i class="fa fa-user"></i> John Doe &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10</small>
+                        </li>
+
+                        <li><br></li>
+
+                        <li>
+                            <p><a href="blog-details.html">Culpa ab quasi in rerum dolorum impedit expedita</a></p>
+                            <small><i class="fa fa-user"></i> John Doe &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10</small>
+                        </li>
+
+                        <li><br></li>
+
+                        <li>
+                          <p><a href="blog-details.html">Explicabo soluta corrupti dolor doloribus optio dolorum</a></p>
+
+                          <small><i class="fa fa-user"></i> John Doe &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10</small>
+                        </li>
+                    </ul> -->
+                </div>
+            </div>
         </div>
     </section>
-    <!-- ***** News End ***** -->
+    <!-- ***** Blog End ***** -->
 @stop

@@ -17,7 +17,7 @@ class JobsController extends Controller
     {
         $jobs = Job::orderBy('id', 'desc')->get();
 
-        return view('jobs')->with('jobs', $jobs);;
+        return view('jobs')->with('jobs', $jobs);
     }
 
     public function admin_index()

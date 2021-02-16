@@ -24,6 +24,7 @@ Route::get('/', [IndexController::class, 'index'])->name('index');
 Route::get('/jobs', [JobsController::class, 'index'])->name('jobs.index');
 Route::get('/jobs/{id}/{slug?}', [JobsController::class, 'show'])->name('jobs.show');
 
+Route::get('/news', [NewsController::class, 'index'])->name('news.index');
 Route::get('/news/{id}/{slug?}', [NewsController::class, 'show'])->name('news.show');
 
 Route::post('/register', [RegisterController::class, 'store'])->name('register');

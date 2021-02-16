@@ -15,7 +15,9 @@ class NewsController extends Controller
      */
     public function index()
     {
-        return view('news');
+        $news = News::orderBy('id', 'desc')->paginate(5);
+
+        return view('news')->with('news', $news);
     }
 
     /**
@@ -70,7 +72,7 @@ class NewsController extends Controller
   
         $news = News::find($id);
 
-        return view('news')->with('news', $news);
+        return view('news-show')->with('news', $news);
     }
 
     /**

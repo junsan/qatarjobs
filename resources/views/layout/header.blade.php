@@ -25,7 +25,7 @@
                         <ul class="nav">
                             <li><a href="{{ route('index') }}">Home</a></li>
                             <li><a href="{{ route('jobs.index') }}">Jobs</a></li>
-                            <li><a href="">News</a></li>
+                            <li><a href="{{ route('news.index') }}">News</a></li>
                             <li><a href="">Events</a></li>
                             <li><a href="">About Us</a></li> 
                         </ul>        
