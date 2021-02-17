@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Company;
 use App\Models\Job;
+use App\Models\News;
+use App\Models\Event;
+use App\Models\Company;
+use Illuminate\Http\Request;
 
 class JobsController extends Controller
 {
@@ -16,8 +18,10 @@ class JobsController extends Controller
     public function index()
     {
         $jobs = Job::orderBy('id', 'desc')->get();
-
-        return view('jobs')->with('jobs', $jobs);
+        $news = News::orderBy('id', 'desc')->limit(5)->get();
+        $events = Event::orderBy('id', 'desc')->limit(5)->get();
+        
+        return view('jobs', compact('news', 'jobs', 'events'));
     }
 
     public function admin_index()
@@ -65,7 +69,11 @@ class JobsController extends Controller
     public function show($id)
     {
         $job = Job::find($id);
-        return view('jobs-show')->with('job', $job);
+        $jobs = Job::orderBy('id', 'desc')->limit(5)->get();
+        $events = Event::orderBy('id', 'desc')->limit(5)->get();
+        $news = News::orderBy('id', 'desc')->limit(5)->get();
+
+        return view('jobs-show', compact('job', 'news', 'jobs', 'events'));
     }
 
     /**

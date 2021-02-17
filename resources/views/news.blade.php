@@ -52,39 +52,48 @@
                 </div>
 
                 <div class="col-lg-4">
-                    <h5 class="h5">Search</h5>
+                    <!-- <h5 class="h5">Search</h5>
                     
-                    <div class="contact-form">
+                     <div class="contact-form">
                         <form id="search_form" name="gs" method="GET" action="#">
                           <input type="text" name="q" class="searchText" placeholder="type to search..." autocomplete="on">
                         </form>
-                    </div>
+                    </div> -->
 
                     
 
-                    <!-- <h5 class="h5">Recent posts</h5>
+                    <h5 class="h5">Recent Job Post</h5>
 
                     <ul>
-                        <li>
-                            <p><a href="blog-details.html">Dolorum corporis ullam, reiciendis inventore est repudiandae</a></p>
-                            <small><i class="fa fa-user"></i> John Doe &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10</small>
-                        </li>
+                        @foreach ($jobs as $job) 
+                            <li>
+                                <p><a href="{{ route('jobs.show', [$job->id, $job->slug]) }}">{{ $job->title }}</a></p>
+                                <small><i class="fa fa-user"></i> {{ $job->company->name }}&nbsp;|&nbsp; <i class="fa fa-calendar"></i> {{ $job->created_at }}</small>
+                            </li>
 
-                        <li><br></li>
+                            <li><hr></li>
+                        @endforeach
+                    </ul>
+                    <br>
+                    <h5 class="h5">Recent Events</h5>
 
-                        <li>
-                            <p><a href="blog-details.html">Culpa ab quasi in rerum dolorum impedit expedita</a></p>
-                            <small><i class="fa fa-user"></i> John Doe &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10</small>
-                        </li>
+                    <ul>
+                        @foreach ($events as $event) 
+                            <li>
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                    <a href="{{ route('events.show', [$event->id, $event->slug]) }}"><img src="{{ $event->image_url }}" height="75" /></a>
+                                    </div>
+                                    <div class="col-lg-8">
+                                        <p><a href="{{ route('events.show', [$event->id, $event->slug]) }}">{{ $event->title }}</a></p>
+                                        <small><i class="fa fa-user"></i> {{ $event->source->name }}&nbsp;|&nbsp; <i class="fa fa-calendar"></i> {{ $event->created_at }}</small>
+                                    </div>
+                                </div>
+                            </li>
 
-                        <li><br></li>
-
-                        <li>
-                          <p><a href="blog-details.html">Explicabo soluta corrupti dolor doloribus optio dolorum</a></p>
-
-                          <small><i class="fa fa-user"></i> John Doe &nbsp;|&nbsp; <i class="fa fa-calendar"></i> 27.07.2020 10:10</small>
-                        </li>
-                    </ul> -->
+                            <li><br></li>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
         </div>

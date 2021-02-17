@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Job;
+use App\Models\News;
 use App\Models\Event;
 use App\Models\Source;
 use Illuminate\Http\Request;
@@ -16,8 +18,10 @@ class EventsController extends Controller
     public function index()
     {
         $events = Event::orderBy('id', 'desc')->paginate(5);
+        $jobs = Job::orderBy('id', 'desc')->limit(8)->get();
+        $news = News::orderBy('id', 'desc')->limit(5)->get();
 
-        return view('events')->with('events', $events);
+        return view('events', compact('news', 'jobs', 'events'));
     }
 
     /**
@@ -70,8 +74,11 @@ class EventsController extends Controller
     public function show($id)
     {
         $event = Event::find($id);
+        $jobs = Job::orderBy('id', 'desc')->limit(5)->get();
+        $events = Event::orderBy('id', 'desc')->limit(5)->get();
+        $news = News::orderBy('id', 'desc')->limit(5)->get();
 
-        return view('events-show')->with('event', $event);
+        return view('events-show', compact('event', 'news', 'jobs', 'events'));
     }
 
     /**
