@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\News;
+use App\Models\Event;
 use App\Models\Source;
 use Illuminate\Http\Request;
 
-class NewsController extends Controller
+class EventsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news = News::orderBy('id', 'desc')->paginate(5);
+        $events = Event::orderBy('id', 'desc')->paginate(5);
 
-        return view('news')->with('news', $news);
+        return view('events')->with('events', $events);
     }
 
     /**
@@ -29,7 +29,7 @@ class NewsController extends Controller
     {
         $sources = Source::orderBy('name')->get();
 
-        return view('admin.news')->with('sources', $sources);
+        return view('admin.events')->with('sources', $sources);
     }
 
     /**
@@ -50,13 +50,13 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        $new = new News();
-        $new->title= $request['title'];
-        $new->source_id= $request['source_id'];
-        $new->content = $request['content'];
-        $new->image_url= $request['image_url'];
-        $new->source_url= $request['source_url'];
-        $new->save(); 
+        $events = new Event();
+        $events->title= $request['title'];
+        $events->source_id= $request['source_id'];
+        $events->content = $request['content'];
+        $events->image_url= $request['image_url'];
+        $events->source_url= $request['source_url'];
+        $events->save(); 
 
         return back();
     }
@@ -69,10 +69,9 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-  
-        $news = News::find($id);
+        $event = Event::find($id);
 
-        return view('news-show')->with('news', $news);
+        return view('events-show')->with('event', $event);
     }
 
     /**

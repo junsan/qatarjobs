@@ -19,14 +19,14 @@
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="{{ route('index') }}" class="logo">Qatar Jobs<em> Online</em></a>
+                        <a href="{{ route('index') }}" class="logo">Qatar Jobs</a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <li><a href="{{ route('index') }}">Home</a></li>
                             <li><a href="{{ route('jobs.index') }}">Jobs</a></li>
                             <li><a href="{{ route('news.index') }}">News</a></li>
-                            <li><a href="">Events</a></li>
+                            <li><a href="{{ route('events.index') }}">Events</a></li>
                             <li><a href="">About Us</a></li> 
                         </ul>        
                         <a class='menu-trigger'>

@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
                     <div class="cta-content">
-                        <h2>Add <em>News</em></h2>
+                        <h2>Add <em>Events</em></h2>
                     </div>
                 </div>
             </div>
@@ -16,7 +16,7 @@
     <section class="section">
         <div class="container">
             <div class="row">
-                <form action="{{ route('news.store') }}" method="post" style="width: 100%;">
+                <form action="{{ route('events.store') }}" method="post" style="width: 100%;">
                     @csrf
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>

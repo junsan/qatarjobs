@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JobsController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\EventsController;
 use App\Http\Controllers\SourceController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\RegisterController;
@@ -27,10 +28,16 @@ Route::get('/jobs/{id}/{slug?}', [JobsController::class, 'show'])->name('jobs.sh
 Route::get('/news', [NewsController::class, 'index'])->name('news.index');
 Route::get('/news/{id}/{slug?}', [NewsController::class, 'show'])->name('news.show');
 
+Route::get('/events', [EventsController::class, 'index'])->name('events.index');
+Route::get('/events/{id}/{slug?}', [EventsController::class, 'show'])->name('events.show');
+
 Route::post('/register', [RegisterController::class, 'store'])->name('register');
 
 Route::get('/admin/news', [NewsController::class, 'admin_index']);
 Route::post('/admin/news', [NewsController::class, 'store'])->name('news.store');
+
+Route::get('/admin/events', [EventsController::class, 'admin_index']);
+Route::post('/admin/events', [EventsController::class, 'store'])->name('events.store');
 
 Route::get('/admin/company', [CompanyController::class, 'index'])->name('company.create');
 Route::post('/admin/company', [CompanyController::class, 'store'])->name('company.store');

@@ -18,7 +18,7 @@
 		                    <a href="contact.html">Search Jobs</a>
 		                </div> -->
 	            	</div>
-	            	<div class="col-sm" style="text-align: left; margin-left: 150px">
+	            	<div class="index-form col-sm" style="text-align: left;">
                         @if ($message = Session::get('success'))
                             <div class="alert alert-success alert-block">
                                 <button type="button" class="close" data-dismiss="alert">×</button>

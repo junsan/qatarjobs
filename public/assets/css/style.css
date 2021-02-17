@@ -407,8 +407,14 @@ header
     padding-left: 12px;
     padding-right: 12px;
   }
+
   .header-area .main-nav:before {
     display: none;
+  }
+  
+  .index-form {
+    text-align: left; 
+    margin-left: 150px;
   }
 }
 
