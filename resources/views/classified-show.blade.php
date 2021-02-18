@@ -63,7 +63,7 @@
                         @endforeach
                     </ul>
                     <br><br>
-                    <h5 class="h5">Recent News</h5>
+                    <!-- <h5 class="h5">Recent News</h5>
                     <br>
                     <ul>
                         @foreach ($news as $new) 
@@ -101,7 +101,7 @@
 
                             <li><br></li>
                         @endforeach
-                    </ul>
+                    </ul> -->
                 </div>
             </div>
         </div>
