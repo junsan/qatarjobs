@@ -19,7 +19,7 @@ class ClassifiedsController extends Controller
     public function index()
     {
         $classifieds = Classified::orderBy('id', 'desc')->get();
-        $jobs = Job::orderBy('id', 'desc')->get();
+        $jobs = Job::orderBy('id', 'desc')->limit(8)->get();
         $news = News::orderBy('id', 'desc')->limit(5)->get();
         $events = Event::orderBy('id', 'desc')->limit(5)->get();
         

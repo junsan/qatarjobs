@@ -26,22 +26,19 @@
 
       gtag('config', 'G-N2R77TRE5B');
     </script>
-
+    </head>
     <meta content='Qatar Jobs Online' name='og:site_name '/><meta expr:content='data:view.title.escaped' property='og:title'/>
     <meta expr:content='data:view.description.escaped' property='og:description'/>
     <b:if cond='data:view.featuredImage'>
-      <meta expr:content='resizeImage(data:view.featuredImage, 1200, &quot;1200:630&quot;)' property='og:image'/>
+        <meta expr:content='resizeImage(data:view.featuredImage, 1200, &quot;1200:630&quot;)' property='og:image'/>
     <b:elseif cond='data:widgets'/>
-      <b:loop reverse='true' values='data:widgets.Blog.first.posts where (p =&gt; p.featuredImage) map (p =&gt; p.featuredImage)' var='imageUrl'>
-      <meta expr:content='resizeImage(data:imageUrl, 1200, &quot;1200:630&quot;)' property='og:image'/>
-      </b:loop>
+        <b:loop reverse='true' values='data:widgets.Blog.first.posts where (p =&gt; p.featuredImage) map (p =&gt; p.featuredImage)' var='imageUrl'>
+        <meta expr:content='resizeImage(data:imageUrl, 1200, &quot;1200:630&quot;)' property='og:image'/>
+        </b:loop>
     <b:elseif cond='data:blog.postImageUrl'/>
-      <meta expr:content='resizeImage(data:blog.postImageUrl, 1200, &quot;1200:630&quot;)' property='og:image'/>
+        <meta expr:content='resizeImage(data:blog.postImageUrl, 1200, &quot;1200:630&quot;)' property='og:image'/>
     </b:if>
     <!--  Open Graph Tags Generator for Blogger: https://bit.ly/30tJixf -->
-
-    </head>
-    
     <body>
    <!-- ***** Header Area ***** -->
     @include('layout.header')
