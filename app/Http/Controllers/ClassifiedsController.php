@@ -29,7 +29,7 @@ class ClassifiedsController extends Controller
     public function admin_index()
     {
 
-        return view('admin.classifieds');
+        return view('admin.classified');
     }
 
     public function classified_image() {
