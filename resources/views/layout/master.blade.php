@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Qatar Jobs Online" />
+    <meta property="og:description" content="Latest Qatar News and Jobs." />
+    <meta property="og:image" content="http://qatarjobs.online/classifieds/gulftime.jpg" />
+    <meta property="og:url" content="http://qatarjobs.online/" />
+
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
 
     <title>QatarJobs.Online | Qatar Jobs</title>
@@ -26,19 +32,9 @@
 
       gtag('config', 'G-N2R77TRE5B');
     </script>
+
+      
     </head>
-    <meta content='Qatar Jobs Online' name='og:site_name '/><meta expr:content='data:view.title.escaped' property='og:title'/>
-    <meta expr:content='data:view.description.escaped' property='og:description'/>
-    <b:if cond='data:view.featuredImage'>
-        <meta expr:content='resizeImage(data:view.featuredImage, 1200, &quot;1200:630&quot;)' property='og:image'/>
-    <b:elseif cond='data:widgets'/>
-        <b:loop reverse='true' values='data:widgets.Blog.first.posts where (p =&gt; p.featuredImage) map (p =&gt; p.featuredImage)' var='imageUrl'>
-        <meta expr:content='resizeImage(data:imageUrl, 1200, &quot;1200:630&quot;)' property='og:image'/>
-        </b:loop>
-    <b:elseif cond='data:blog.postImageUrl'/>
-        <meta expr:content='resizeImage(data:blog.postImageUrl, 1200, &quot;1200:630&quot;)' property='og:image'/>
-    </b:if>
-    <!--  Open Graph Tags Generator for Blogger: https://bit.ly/30tJixf -->
     <body>
    <!-- ***** Header Area ***** -->
     @include('layout.header')
