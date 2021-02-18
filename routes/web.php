@@ -8,6 +8,7 @@ use App\Http\Controllers\EventsController;
 use App\Http\Controllers\SourceController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\ClassifiedsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,9 @@ Route::get('/news/{id}/{slug?}', [NewsController::class, 'show'])->name('news.sh
 Route::get('/events', [EventsController::class, 'index'])->name('events.index');
 Route::get('/events/{id}/{slug?}', [EventsController::class, 'show'])->name('events.show');
 
+Route::get('/classified', [ClassifiedsController::class, 'index'])->name('classifieds.index');
+Route::get('/classified/{id}/{slug?}', [ClassifiedsController::class, 'show'])->name('classifieds.show');
+
 Route::post('/register', [RegisterController::class, 'store'])->name('register');
 
 Route::get('/admin/news', [NewsController::class, 'admin_index']);
@@ -47,6 +51,12 @@ Route::post('/admin/jobs', [JobsController::class, 'store'])->name('jobs.store')
 
 Route::get('/admin/source', [SourceController::class, 'admin_index'])->name('source.create');
 Route::post('/admin/source', [SourceController::class, 'store'])->name('source.store');
+
+Route::get('/admin/classifieds', [ClassifiedsController::class, 'admin_index'])->name('classifieds.create');
+Route::post('/admin/classifieds', [ClassifiedsController::class, 'store'])->name('classifieds.store');
+
+Route::get('/admin/classified_image', [ClassifiedsController::class, 'classified_image'])->name('classified_image.create');
+Route::post('/admin/classified_image', [ClassifiedsController::class, 'classified_image_store'])->name('classified_image.store');
 
 Route::get('/php', function () {
     return view('php');

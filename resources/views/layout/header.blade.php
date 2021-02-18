@@ -27,7 +27,7 @@
                             <li><a href="{{ route('jobs.index') }}">Jobs</a></li>
                             <li><a href="{{ route('news.index') }}">News</a></li>
                             <li><a href="{{ route('events.index') }}">Events</a></li>
-                            <li><a href="">About Us</a></li> 
+                            <li><a href="{{ route('classifieds.index') }}">Classifieds</a></li> 
                         </ul>        
                         <a class='menu-trigger'>
                             <span>Menu</span>
