@@ -1,5 +1,13 @@
 @extends('layout.master')
 
+@section('meta')
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Qatar Jobs Online" />
+    <meta property="og:description" content="Latest Qatar News and Jobs." />
+    <meta property="og:image" content="http://qatarjobs.online/classifieds/gulftime.jpg" />
+    <meta property="og:url" content="http://qatarjobs.online/" />
+@stop
+
 @section('content')
 
     <section class="section section-bg" id="call-to-action" style="background-image: url(http://qatarjobs.online/assets/images/banner-image-1-1920x500.jpg)">
@@ -63,7 +71,7 @@
                         @endforeach
                     </ul>
                     <br><br>
-                    <!-- <h5 class="h5">Recent News</h5>
+                    <h5 class="h5">Recent News</h5>
                     <br>
                     <ul>
                         @foreach ($news as $new) 
@@ -101,7 +109,7 @@
 
                             <li><br></li>
                         @endforeach
-                    </ul> -->
+                    </ul>
                 </div>
             </div>
         </div>
