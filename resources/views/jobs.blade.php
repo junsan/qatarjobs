@@ -31,7 +31,7 @@
                                     <tr>
                                     <th scope="col">Position</th>
                                     <th scope="col">Company</th>
-                                    <th scope="col"></th>
+                                    <th scope="col" class="d-none d-sm-block"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -39,11 +39,19 @@
                                         <tr>
                                             <td><a href="{{ route('jobs.show', [$job->id, $job->slug]) }}">{{ $job->title }}</a></td>
                                             <td>{{ $job->company->name }}</td>
-                                            <td><img src="{{ $job->company->logo }}" /></td>
+                                            <td class="d-none d-sm-block"><img style="float: right; height: 30px" src="{{ $job->company->logo }}" /></td>
                                         </tr>
                                     @endforeach
                                 </tbody>
                             </table>
+                            <br>
+                            <br>
+                            <span style="float: right">{{ $jobs->links("pagination::bootstrap-4")}}</span>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
                       </div>
                 </div>
             </div> 
@@ -59,46 +67,12 @@
                     </div> -->
 
                     
-
-                <h5 class="h5">Recent News</h5>
-                <br>
-                <ul>
-                    @foreach ($news as $new) 
-                        <li>
-                            <div class="row">
-                                <div class="col-lg-4">
-                                <a href="{{ route('news.show', [$new->id, $new->slug]) }}"><img src="{{ $new->image_url }}" height="75" /></a>
-                                </div>
-                                <div class="col-lg-8">
-                                    <p><a href="{{ route('news.show', [$new->id, $new->slug]) }}">{{ $new->title }}</a></p>
-                                    <small><i class="fa fa-user"></i> {{ $new->source->name }}&nbsp;|&nbsp; <i class="fa fa-calendar"></i> {{ $new->created_at }}</small>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li><br></li>
-                    @endforeach
-                </ul>               
+                @include('layout.news')
+                              
                 <hr>
-                <h5 class="h5">Recent Events</h5>
-                <br>
-                <ul>
-                    @foreach ($events as $event) 
-                        <li>
-                            <div class="row">
-                                <div class="col-lg-4">
-                                <a href="{{ route('events.show', [$event->id, $event->slug]) }}"><img src="{{ $event->image_url }}" height="75" /></a>
-                                </div>
-                                <div class="col-lg-8">
-                                    <p><a href="{{ route('events.show', [$event->id, $event->slug]) }}">{{ $event->title }}</a></p>
-                                    <small><i class="fa fa-user"></i> {{ $event->source->name }}&nbsp;|&nbsp; <i class="fa fa-calendar"></i> {{ $event->created_at }}</small>
-                                </div>
-                            </div>
-                        </li>
 
-                        <li><br></li>
-                    @endforeach
-                </ul>
+                @include('layout.events')
+
             </div>
         </div>
     </section>

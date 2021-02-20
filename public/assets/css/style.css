@@ -1209,6 +1209,10 @@ responsive
   .feature-item .right-content a.text-button {
     margin-left: 130px;
   }
+
+  p a.larger_text {
+    font-size: 16px;
+  }
 }
 
 .dropdown-menu {

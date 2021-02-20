@@ -17,7 +17,7 @@ class JobsController extends Controller
      */
     public function index()
     {
-        $jobs = Job::orderBy('id', 'desc')->get();
+        $jobs = Job::orderBy('id', 'desc')->paginate(10);
         $news = News::orderBy('id', 'desc')->limit(5)->get();
         $events = Event::orderBy('id', 'desc')->limit(5)->get();
         

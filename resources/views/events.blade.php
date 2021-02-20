@@ -75,25 +75,7 @@
                         @endforeach
                     </ul>
                     <br>
-                    <h5 class="h5">Recent News</h5>
-                    <br>
-                    <ul>
-                        @foreach ($news as $new) 
-                            <li>
-                                <div class="row">
-                                    <div class="col-lg-4">
-                                    <a href="{{ route('news.show', [$new->id, $new->slug]) }}"><img src="{{ $new->image_url }}" height="75" /></a>
-                                    </div>
-                                    <div class="col-lg-8">
-                                        <p><a href="{{ route('news.show', [$new->id, $new->slug]) }}">{{ $new->title }}</a></p>
-                                        <small><i class="fa fa-user"></i> {{ $new->source->name }}&nbsp;|&nbsp; <i class="fa fa-calendar"></i> {{ $new->created_at }}</small>
-                                    </div>
-                                </div>
-                            </li>
-
-                            <li><br></li>
-                        @endforeach
-                    </ul>
+                    @include('layout.news')
                 </div>
             </div>
         </div>
