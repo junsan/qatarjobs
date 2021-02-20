@@ -26,6 +26,16 @@
                 <div class="col-lg-8">
                     <div class="row">
                       <div class="col-lg-12">
+                            <h5 class="h5">Search Job</h5>      
+                            <div class="contact-form">
+                                <form id="search_form" name="gs" method="GET" action="{{ route('jobs.index') }}">
+                                    <div class="input-group mb-3">
+                                        <input value="{{ $search }}" aria-describedby="button-addon2" style="padding: 25px 10px; font-size: 20px;" type="text" name="query" class="searchText form-control" placeholder="type to search..." autocomplete="on">
+                                        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
+                                    </div>
+                                </form>
+                            </div>
+                            <br>
                             <table class="table">
                                 <thead>
                                     <tr>
@@ -58,14 +68,6 @@
 
             <br>
             <div class="col-lg-4">
-                <!-- <h5 class="h5">Search</h5>
-                    
-                     <div class="contact-form">
-                        <form id="search_form" name="gs" method="GET" action="#">
-                          <input type="text" name="q" class="searchText" placeholder="type to search..." autocomplete="on">
-                        </form>
-                    </div> -->
-
                     
                 @include('layout.news')
                               
