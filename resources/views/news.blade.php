@@ -48,7 +48,7 @@
                       <span style="float: right">{{ $news->links("pagination::bootstrap-4")}}</span>
                       
                     </section>
-
+                    <br><br><br><br>
                 </div>
 
                 <div class="col-lg-4">

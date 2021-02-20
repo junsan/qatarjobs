@@ -13,10 +13,12 @@
             	<div class="row">
             		<div class="col-sm">
 		                <h2 style="font-size: 50px;">Find the perfect <em>Job</em></h2>
-		                <!-- <div class="main-button">
-		                    <input type="text" name="search" style="padding: 9px 10px; width: 400px; margin-bottom: 5px;" />
-		                    <a href="contact.html">Search Jobs</a>
-		                </div> -->
+		                <form id="search_form" name="gs" method="GET" action="{{ route('jobs.index') }}">
+                            <div class="main-button">
+                                <input type="text" name="query" style="padding: 9px 10px; width: 400px; margin-bottom: 5px;" />
+                                <button type="submit" style="border: none;" class="register-button" id="button-addon2">Search Jobs</button>
+                            </div>
+                        </form>
 	            	</div>
 	            	<div class="index-form col-sm" style="text-align: left;">
                         @if ($message = Session::get('success'))

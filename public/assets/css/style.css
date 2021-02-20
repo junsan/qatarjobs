@@ -1202,6 +1202,9 @@ responsive
   #contact-us .contact-form #contact {
     padding: 30px;
   }
+  .index-form {
+    margin-left: 0;
+  }
 
 }
 
@@ -1211,7 +1214,11 @@ responsive
   }
 
   p a.larger_text {
-    font-size: 16px;
+    font-size: 20px;
+  }
+
+  .index-form {
+    margin-left: 0;
   }
 }
 
