@@ -6,6 +6,7 @@ use App\Models\Job;
 use App\Models\News;
 use App\Models\Event;
 use App\Models\Company;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class JobsController extends Controller
@@ -39,8 +40,15 @@ class JobsController extends Controller
     public function admin_index()
     {
         $companies = Company::orderBy('id', 'desc')->get();
+        $categories = Category::orderBy('id', 'desc')->get();
 
-        return view('admin.jobs')->with('companies', $companies);
+        return view('admin.jobs', compact('companies', 'categories'));
+    }
+
+    public function jobs_list() {
+
+        $jobs = Job::orderBy('id', 'desc')->limit(20)->get();
+        return view('admin.jobs_list')->with('jobs', $jobs);
     }
 
     /**
@@ -96,7 +104,11 @@ class JobsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $companies = Company::orderBy('id', 'desc')->get();
+        $categories = Category::orderBy('id', 'desc')->get();
+        $job = Job::find($id);
+
+        return view('admin.jobs', compact('companies', 'categories', 'job'));
     }
 
     /**
@@ -108,7 +120,17 @@ class JobsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $jobs = Job::find($id);
+        $jobs->title= $request['title'];
+        $jobs->category_id= $request['category_id'];
+        $jobs->company_id= $request['company_id'];
+        $jobs->description = $request['description'];
+        $jobs->requirements= $request['requirements'];
+        $jobs->source_url= $request['source_url'];
+
+        $jobs->save(); 
+
+        return back();
     }
 
     /**

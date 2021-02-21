@@ -9,6 +9,7 @@ use App\Http\Controllers\SourceController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ClassifiedsController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,9 +49,15 @@ Route::post('/admin/company', [CompanyController::class, 'store'])->name('compan
 
 Route::get('/admin/jobs', [JobsController::class, 'admin_index'])->name('jobs.create');
 Route::post('/admin/jobs', [JobsController::class, 'store'])->name('jobs.store');
+Route::get('/admin/jobs_list', [JobsController::class, 'jobs_list'])->name('jobs.list');
+Route::get('/admin/job/{id}/', [JobsController::class, 'edit'])->name('jobs.edit');
+Route::put('/admin/job/{id}/', [JobsController::class, 'update'])->name('jobs.update');
 
 Route::get('/admin/source', [SourceController::class, 'admin_index'])->name('source.create');
 Route::post('/admin/source', [SourceController::class, 'store'])->name('source.store');
+
+Route::get('/admin/category', [CategoryController::class, 'admin_index'])->name('category.create');
+Route::post('/admin/category', [CategoryController::class, 'store'])->name('category.store');
 
 Route::get('/admin/classifieds', [ClassifiedsController::class, 'admin_index'])->name('classifieds.create');
 Route::post('/admin/classifieds', [ClassifiedsController::class, 'store'])->name('classifieds.store');
