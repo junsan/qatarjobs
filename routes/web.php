@@ -24,7 +24,7 @@ use App\Http\Controllers\CategoryController;
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
 
-Route::get('/jobs', [JobsController::class, 'index'])->name('jobs.index');
+Route::get('/jobs/{id?}', [JobsController::class, 'index'])->name('jobs.index');
 Route::get('/jobs/{id}/{slug?}', [JobsController::class, 'show'])->name('jobs.show');
 
 Route::get('/news', [NewsController::class, 'index'])->name('news.index');

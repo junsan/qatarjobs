@@ -59,7 +59,10 @@
                           <input type="text" name="q" class="searchText" placeholder="type to search..." autocomplete="on">
                         </form>
                     </div> -->
-
+                    
+                    @include('layout.category')
+                              
+                    <hr> 
                     <br>
                     <h5 class="h5">Recent Job Post</h5>
 

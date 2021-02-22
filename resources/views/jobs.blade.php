@@ -68,7 +68,11 @@
 
             <br>
             <div class="col-lg-4">
-                    
+                
+                @include('layout.category')
+                              
+                <hr> 
+
                 @include('layout.news')
                               
                 <hr>

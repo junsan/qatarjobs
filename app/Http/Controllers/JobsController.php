@@ -16,25 +16,26 @@ class JobsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(Request $request, $id = null)
     {
-
+        $search = null;
         if ($request->has('query') && !is_null($request['query'])){
             $search = $request['query'];
             $jobs = Job::orderBy('id', 'desc')->where('title', 'LIKE', "%$search%")->orWhereHas('company', 
                     function($query) use($search) {
                         $query->where('name', 'LIKE', "%$search%");
                     })->paginate(20);  
-
+        } else if (!is_null($id)) {
+            $jobs = Job::orderBy('id', 'desc')->where('category_id', $id)->paginate(20);
         } else {
             $jobs = Job::orderBy('id', 'desc')->paginate(20);
-            $search = '';
         }    
         
         $news = News::orderBy('id', 'desc')->limit(5)->get();
         $events = Event::orderBy('id', 'desc')->limit(5)->get();
+        $categories = Category::orderBy('id', 'asc')->get();
         
-        return view('jobs', compact('news', 'jobs', 'events', 'search'));
+        return view('jobs', compact('news', 'jobs', 'events', 'search', 'categories'));
     }
 
     public function admin_index()
@@ -92,8 +93,9 @@ class JobsController extends Controller
         $jobs = Job::orderBy('id', 'desc')->limit(5)->get();
         $events = Event::orderBy('id', 'desc')->limit(5)->get();
         $news = News::orderBy('id', 'desc')->limit(5)->get();
+        $categories = Category::orderBy('id', 'asc')->get();
 
-        return view('jobs-show', compact('job', 'news', 'jobs', 'events'));
+        return view('jobs-show', compact('job', 'news', 'jobs', 'events', 'categories'));
     }
 
     /**
