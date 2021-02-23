@@ -36,6 +36,11 @@
                         @endforeach
                     </tbody>
                 </table>
+                <br>
+                <br>
+                <span style="float: right">{{ $jobs->links("pagination::bootstrap-4")}}</span>
+                <br>
+                <br>
             </div>
         </div>
     </section>

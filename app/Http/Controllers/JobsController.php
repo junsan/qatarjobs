@@ -8,6 +8,7 @@ use App\Models\Event;
 use App\Models\Company;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
 class JobsController extends Controller
 {
@@ -42,8 +43,9 @@ class JobsController extends Controller
     {
         $companies = Company::orderBy('id', 'desc')->get();
         $categories = Category::orderBy('id', 'desc')->get();
+        $job = new Job;
 
-        return view('admin.jobs', compact('companies', 'categories'));
+        return view('admin.jobs', compact('companies', 'categories', 'job'));
     }
 
     public function jobs_list() {
