@@ -2,7 +2,7 @@
 <ul>
     @foreach ($categories as $category) 
         <li>
-            <a href="{{ route('jobs.index', $category->id) }}">{{ $category->name }}</a>
+            <a href="{{ route('jobs.index', [$category->slug, $category->id]) }}">{{ $category->name }}</a>
         </li>
     @endforeach
 </ul>

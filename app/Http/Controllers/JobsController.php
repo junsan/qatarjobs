@@ -17,7 +17,7 @@ class JobsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, $id = null)
+    public function index(Request $request, $category = null, $id = null)
     {
         $search = null;
         if ($request->has('query') && !is_null($request['query'])){
@@ -25,11 +25,11 @@ class JobsController extends Controller
             $jobs = Job::orderBy('id', 'desc')->where('title', 'LIKE', "%$search%")->orWhereHas('company', 
                     function($query) use($search) {
                         $query->where('name', 'LIKE', "%$search%");
-                    })->paginate(20);  
+                    })->paginate(40);  
         } else if (!is_null($id)) {
-            $jobs = Job::orderBy('id', 'desc')->where('category_id', $id)->paginate(20);
+            $jobs = Job::orderBy('id', 'desc')->where('category_id', $id)->paginate(40);
         } else {
-            $jobs = Job::orderBy('id', 'desc')->paginate(20);
+            $jobs = Job::orderBy('id', 'desc')->paginate(40);
         }    
         
         $news = News::orderBy('id', 'desc')->limit(5)->get();
@@ -50,7 +50,7 @@ class JobsController extends Controller
 
     public function jobs_list() {
 
-        $jobs = Job::orderBy('id', 'desc')->limit(20)->get();
+        $jobs = Job::orderBy('id', 'desc')->limit(20)->paginate(40);
         return view('admin.jobs_list')->with('jobs', $jobs);
     }
 

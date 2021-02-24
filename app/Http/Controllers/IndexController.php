@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Job;
 use App\Models\News;
 use Illuminate\Http\Request;
 
@@ -15,8 +16,9 @@ class IndexController extends Controller
     public function index()
     {
         $news = News::orderBy('id', 'desc')->limit(6)->get();
+        $jobs = Job::orderBy('id', 'desc')->paginate(15);
 
-        return view('index')->with('news', $news);
+        return view('index', compact('news', 'jobs'));
     }
 
     /**

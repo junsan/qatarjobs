@@ -30,7 +30,7 @@
                             <div class="contact-form">
                                 <form id="search_form" name="gs" method="GET" action="{{ route('jobs.index') }}">
                                     <div class="input-group mb-3">
-                                        <input value="{{ $search }}" aria-describedby="button-addon2" style="padding: 25px 10px; font-size: 20px;" type="text" name="query" class="searchText form-control" placeholder="type to search..." autocomplete="on">
+                                        <input value="{{ $search }}" aria-describedby="button-addon2" style="padding: 25px 10px; font-size: 20px;" type="text" name="query" class="searchText form-control" placeholder="Enter job title, keyword or company" autocomplete="on">
                                         <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
                                     </div>
                                 </form>
@@ -41,7 +41,7 @@
                                     <tr>
                                     <th scope="col">Position</th>
                                     <th scope="col">Company</th>
-                                    <th scope="col" class="d-none d-sm-block"></th>
+                                    <th scope="col" class="d-none d-sm-block" style="text-align: right;">Logo</th>
                                     </tr>
                                 </thead>
                                 <tbody>
